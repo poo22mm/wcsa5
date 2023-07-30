@@ -6,14 +6,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 
 public class DragAndDropMethod {
 
 	public static void main(String[] args) throws InterruptedException {
 		
-		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
-		WebDriver driver=new ChromeDriver();
+		System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
+		WebDriver driver=new FirefoxDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		
@@ -32,7 +33,7 @@ public class DragAndDropMethod {
 		WebElement target4 = driver.findElement(By.xpath("//ol[@id='amt7']/descendant::li"));
 		
 		Actions act = new Actions(driver);
-		act.dragAndDrop(src4, target1).perform();
+		act.dragAndDrop(src1, target1).perform();
 		Thread.sleep(2000);
 		act.dragAndDrop(src2, target2).perform();
 		Thread.sleep(2000);
@@ -48,11 +49,12 @@ public class DragAndDropMethod {
 			driver.quit();
 			
 		}
-		else {
-			
-		} 
+		else 
+		{
 			System.out.println("Exception!!");
-		}
+		} 
+	
+	}
 			
 			
 	
